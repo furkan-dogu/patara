@@ -13,8 +13,20 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import Link from "next/link";
 import { Icon } from "@/helpers/Icons";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
+import Image from "next/image";
+import design from "@/assets/images/design.png";
 
 export default function Navbar() {
+  const router = useRouter();
+  const [isConnected, setIsConnected] = useState(false);
+
+  const handleCorrectClick = () => {
+    router.push("/connect");
+    setIsConnected(true);
+  };
+
   interface MenuLink {
     id: number;
     slug: string;
@@ -58,7 +70,7 @@ export default function Navbar() {
           </Link>
         </div>
 
-        <div className="flex-1 max-w-[464px] hidden lg:flex">
+        <div className="flex-1 max-w-[464px] hidden lg:flex xl:ml-[5%] ml-[6.5%]">
           <div className="relative w-full">
             <Input
               placeholder="Enter Accounts, Platforms, NFTs, Token"
@@ -81,7 +93,7 @@ export default function Navbar() {
         <div className="flex items-center gap-2 flex-wrap">
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button variant="ghost" size="icon">
+              <Button variant="ghost" size="icon" className="cursor-pointer">
                 <Icon name="bell" className="size-6" />
               </Button>
             </DropdownMenuTrigger>
@@ -96,7 +108,7 @@ export default function Navbar() {
 
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button variant="ghost" size="icon">
+              <Button variant="ghost" size="icon" className="cursor-pointer">
                 <Icon name="settings" className="size-6" />
               </Button>
             </DropdownMenuTrigger>
@@ -118,9 +130,39 @@ export default function Navbar() {
             </DropdownMenuContent>
           </DropdownMenu>
 
-          <Button className="bg-[#006EFF] hover:bg-blue-700 text-white h-10 px-9 rounded-xl font-inter cursor-pointer">
-            Connect/Sign in
-          </Button>
+          {isConnected ? (
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <button className="flex items-center bg-[#181818] rounded-full px-2 py-1 gap-3.5 cursor-pointer">
+                  <div className="flex items-center gap-1">
+                    <div className="size-8 rounded-md flex items-center justify-center overflow-hidden">
+                      <Image
+                        src={design}
+                        alt="design"
+                        className="size-10 object-cover"
+                      />
+                    </div>
+                    <span className="text-sm font-medium">@patara.sui</span>
+                  </div>
+                  <Icon name="chevronDown" />
+                </button>
+              </DropdownMenuTrigger>
+
+              <DropdownMenuContent align="end" className="w-44">
+                <DropdownMenuLabel>Connected Account</DropdownMenuLabel>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem>Disconnect</DropdownMenuItem>
+                <DropdownMenuItem>Switch Account</DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          ) : (
+            <Button
+              onClick={handleCorrectClick}
+              className="bg-[#006EFF] hover:bg-blue-700 text-white h-10 px-9 rounded-xl font-inter cursor-pointer"
+            >
+              Connect/Sign in
+            </Button>
+          )}
         </div>
       </div>
       <div className="w-11/12 mx-auto flex lg:hidden">

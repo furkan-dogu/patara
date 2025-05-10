@@ -1,30 +1,40 @@
-import { Geist, Geist_Mono, Inter } from "next/font/google";
-import Navbar from "@/components/Navbar";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
-});
+import ReferCard from "@/components/ReferCard";
 
 export default function Home() {
+  const letters = ["P", "S", "F", "G", "M", "C", "W", "A"];
+
   return (
-    <div
-      className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} min-h-screen flex flex-col font-sans overflow-x-hidden`}
-    >
-      <Navbar />
-      <main className="text-white min-h-screen bg-[#0C0C0C] p-10">
-        Ana içerik
-      </main>
+    <div className="w-full py-[60px] relative">
+      <div className="absolute max-w-[1440px] w-full mx-auto inset-0 z-10 pointer-events-none hidden md:block">
+        {letters.map((letter, i) => {
+          const positions = [
+            { top: "8%", left: "7%" },
+            { top: "30%", left: "4%" },
+            { bottom: "40%", left: "14%" },
+            { bottom: "15%", left: "2%" },
+            { top: "8%", right: "5%" },
+            { top: "27%", right: "22%" },
+            { bottom: "43%", right: "8%" },
+            { bottom: "13%", right: "10%" },
+          ];
+          const pos = positions[i];
+
+          return (
+            <div
+              key={i}
+              className="absolute text-white text-4xl font-bold blur-xs size-[60px] rounded-full flex items-center justify-center select-none"
+              style={{
+                ...pos,
+                background:
+                  "linear-gradient(180deg, #282832 0%, #212121 36.52%, #121212 100%)",
+              }}
+            >
+              {letter}
+            </div>
+          );
+        })}
+      </div>
+      <ReferCard />
     </div>
   );
 }

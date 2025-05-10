@@ -177,6 +177,72 @@ const LogoutIcon = ({ className }: IconProps) => (
   </svg>
 );
 
+const ReferIcon = ({ className }: IconProps) => (
+  <svg
+    width="38"
+    height="57"
+    viewBox="0 0 38 57"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    className={className}
+  >
+    <path
+      d="M18.797 0.103821C8.4714 0.103821 0.102661 8.47256 0.102661 18.7981C0.102661 19.0356 0.102661 56.1867 0.102661 56.1867C10.4282 56.1867 18.797 47.818 18.797 37.4924C29.1225 37.4924 37.4912 29.1237 37.4912 18.7981C37.4912 8.47256 29.1225 0.103821 18.797 0.103821Z"
+      fill="url(#paint0_radial_1_22519)"
+    />
+    <path
+      d="M18.797 2.90607C27.5551 2.90607 34.689 10.0304 34.689 18.7981C34.689 27.5658 27.5646 34.6902 18.797 34.6902H15.9852V37.5019C15.9852 41.748 14.3324 45.7376 11.3306 48.7394C9.00335 51.0667 6.07762 52.5865 2.90491 53.147V18.8076C2.90491 10.0494 10.0293 2.91556 18.797 2.91556M18.797 0.103821C8.4714 0.103821 0.102661 8.47256 0.102661 18.7981C0.102661 19.0356 0.102661 56.1867 0.102661 56.1867C10.4282 56.1867 18.797 47.818 18.797 37.4924C29.1225 37.4924 37.4912 29.1237 37.4912 18.7981C37.4912 8.47256 29.1225 0.103821 18.797 0.103821Z"
+      fill="url(#paint1_radial_1_22519)"
+    />
+    <defs>
+      <radialGradient
+        id="paint0_radial_1_22519"
+        cx="0"
+        cy="0"
+        r="1"
+        gradientUnits="userSpaceOnUse"
+        gradientTransform="translate(18.797 28.1453) scale(23.8333 23.8333)"
+      >
+        <stop stop-color="#EDB984" />
+        <stop offset="0.25" stop-color="#FF8B67" />
+        <stop offset="0.5" stop-color="#FFEDA3" />
+        <stop offset="0.76" stop-color="#E14F49" />
+        <stop offset="0.99" stop-color="#FF7F9A" />
+      </radialGradient>
+      <radialGradient
+        id="paint1_radial_1_22519"
+        cx="0"
+        cy="0"
+        r="1"
+        gradientUnits="userSpaceOnUse"
+        gradientTransform="translate(18.797 28.1453) scale(23.8333 23.8333)"
+      >
+        <stop stop-color="#A284ED" />
+        <stop offset="0.25" stop-color="#6775FF" />
+        <stop offset="0.5" stop-color="#FFA3FE" />
+        <stop offset="0.76" stop-color="#4993E1" />
+        <stop offset="0.99" stop-color="#7FE8FF" />
+      </radialGradient>
+    </defs>
+  </svg>
+);
+
+const ChevronDownIcon = ({ className }: IconProps) => (
+  <svg
+    width="20"
+    height="20"
+    viewBox="0 0 20 20"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    className={className}
+  >
+    <path
+      d="M16.6923 7.94219L10.4423 14.1922C10.3842 14.2503 10.3153 14.2964 10.2394 14.3279C10.1636 14.3593 10.0822 14.3755 10.0001 14.3755C9.91797 14.3755 9.83664 14.3593 9.76077 14.3279C9.68489 14.2964 9.61596 14.2503 9.55792 14.1922L3.30792 7.94219C3.19064 7.82491 3.12476 7.66585 3.12476 7.5C3.12476 7.33415 3.19064 7.17509 3.30792 7.05781C3.42519 6.94054 3.58425 6.87465 3.7501 6.87465C3.91596 6.87465 4.07502 6.94054 4.19229 7.05781L10.0001 12.8664L15.8079 7.05781C15.866 6.99974 15.9349 6.95368 16.0108 6.92225C16.0867 6.89083 16.168 6.87465 16.2501 6.87465C16.3322 6.87465 16.4135 6.89083 16.4894 6.92225C16.5653 6.95368 16.6342 6.99974 16.6923 7.05781C16.7504 7.11588 16.7964 7.18482 16.8278 7.26069C16.8593 7.33656 16.8755 7.41788 16.8755 7.5C16.8755 7.58212 16.8593 7.66344 16.8278 7.73931C16.7964 7.81518 16.7504 7.88412 16.6923 7.94219Z"
+      fill="currentColor"
+    />
+  </svg>
+);
+
 const icons = {
   logo: LogoIcon,
   menu: MenuIcon,
@@ -187,6 +253,8 @@ const icons = {
   user: UserIcon,
   help: HelpIcon,
   logout: LogoutIcon,
+  refer: ReferIcon,
+  chevronDown: ChevronDownIcon,
 };
 
 type IconName = keyof typeof icons;
