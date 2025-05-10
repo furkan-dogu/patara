@@ -22,7 +22,7 @@ export default function Home() {
           return (
             <div
               key={i}
-              className="absolute text-white text-4xl font-bold blur-xs size-[60px] rounded-full flex items-center justify-center select-none"
+              className="absolute text-[#C4C4C8] text-3xl font-bold blur-xs size-[60px] rounded-full flex items-center justify-center select-none"
               style={{
                 ...pos,
                 background:
