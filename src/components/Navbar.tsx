@@ -142,7 +142,7 @@ export default function Navbar() {
                         className="size-10 object-cover"
                       />
                     </div>
-                    <span className="text-sm font-medium">@patara.sui</span>
+                    <span className="text-sm font-semibold">@patara.sui</span>
                   </div>
                   <Icon name="chevronDown" />
                 </button>
