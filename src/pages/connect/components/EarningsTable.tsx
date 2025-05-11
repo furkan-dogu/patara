@@ -250,7 +250,7 @@ const EarningsTable = () => {
                       (page, index) => (
                         <PaginationItem key={index}>
                           {page === "..." ? (
-                            <div className="xs:size-10 size-8 border border-[#383838] text-white font-medium xs:text-sm xs:leading-[18px] text-xs flex items-center justify-center xs:rounded-xl rounded-lg cursor-pointer">
+                            <div className="xs:size-10 size-8 border border-[#383838] text-white font-medium xs:text-sm xs:leading-[18px] text-xs flex items-center justify-center xs:rounded-xl rounded-lg cursor-default">
                               ...
                             </div>
                           ) : (

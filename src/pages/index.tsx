@@ -1,6 +1,10 @@
 import ReferCard from "@/components/ReferCard";
 
-export default function Home() {
+interface HomeProps {
+  setIsConnected: (val: boolean) => void;
+}
+
+export default function Home({ setIsConnected }: HomeProps) {
   const letters = ["P", "S", "F", "G", "M", "C", "W", "A"];
 
   return (
@@ -34,7 +38,7 @@ export default function Home() {
           );
         })}
       </div>
-      <ReferCard />
+      <ReferCard setIsConnected={setIsConnected} />
     </div>
   );
 }

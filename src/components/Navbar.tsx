@@ -14,13 +14,17 @@ import { Input } from "@/components/ui/input";
 import Link from "next/link";
 import { Icon } from "@/helpers/Icons";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { Dispatch, SetStateAction } from "react";
 import Image from "next/image";
 import design from "@/assets/images/design.png";
 
-export default function Navbar() {
+interface NavbarProps {
+  isConnected: boolean;
+  setIsConnected: Dispatch<SetStateAction<boolean>>;
+}
+
+export default function Navbar({ isConnected, setIsConnected }: NavbarProps) {
   const router = useRouter();
-  const [isConnected, setIsConnected] = useState(false);
 
   const handleCorrectClick = () => {
     router.push("/connect");
@@ -38,6 +42,11 @@ export default function Navbar() {
     { id: 2, slug: "/explore", label: "Explore" },
     { id: 3, slug: "/profile", label: "Profile" },
   ];
+
+  const handleLogout = () => {
+    setIsConnected(false);
+    router.push("/");
+  };
 
   return (
     <header className="w-full bg-[#0C0C0C] text-white flex flex-col gap-5 py-5">
@@ -123,7 +132,7 @@ export default function Navbar() {
                 Help
               </DropdownMenuItem>
               <DropdownMenuSeparator />
-              <DropdownMenuItem>
+              <DropdownMenuItem onClick={handleLogout}>
                 <Icon name="logout" className="size-4 mr-2" />
                 Sign Out
               </DropdownMenuItem>

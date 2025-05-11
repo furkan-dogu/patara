@@ -1,5 +1,12 @@
+"use client";
+
 import { Geist, Geist_Mono, Inter } from "next/font/google";
 import Navbar from "@/components/Navbar";
+import React, {
+  useState,
+  cloneElement,
+  ReactElement,
+} from "react";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -16,13 +23,21 @@ const inter = Inter({
   subsets: ["latin"],
 });
 
-export default function Layout({ children }: { children: React.ReactNode }) {
+interface LayoutProps {
+  children: ReactElement<{ setIsConnected: (val: boolean) => void }>;
+}
+
+export default function Layout({ children }: LayoutProps) {
+  const [isConnected, setIsConnected] = useState(false);
+
   return (
     <div
       className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} min-h-screen flex flex-col font-sans overflow-x-hidden bg-[#0C0C0C]`}
     >
-      <Navbar />
-      <main className="flex-grow w-full">{children}</main>
+      <Navbar isConnected={isConnected} setIsConnected={setIsConnected} />
+      <main className="flex-grow w-full">
+        {cloneElement(children, { setIsConnected })}
+      </main>
     </div>
   );
 }

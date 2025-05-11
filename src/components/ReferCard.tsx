@@ -1,7 +1,20 @@
 import { Button } from "@/components/ui/button";
 import OrbitAnimation from "@/components/OrbitAnimation";
+import { useRouter } from "next/navigation";
+import { FC } from "react";
 
-export default function ReferCard() {
+interface ReferCardProps {
+  setIsConnected: (val: boolean) => void;
+}
+
+const ReferCard: FC<ReferCardProps> = ({ setIsConnected }) => {
+  const router = useRouter();
+
+  const handleCorrectClick = () => {
+    router.push("/connect");
+    setIsConnected(true);
+  };
+  
   return (
     <div className="bg-[#181818] text-white border border-[#282828] rounded-3xl max-w-[464px] w-full mx-auto text-center py-10 relative z-10">
       <OrbitAnimation />
@@ -15,10 +28,15 @@ export default function ReferCard() {
           rewards forever!
         </p>
 
-        <Button className="bg-[#006EFF] hover:bg-blue-700 text-white h-12 px-4 rounded-sm font-medium cursor-pointer mt-10">
+        <Button 
+          onClick={handleCorrectClick}
+          className="bg-[#006EFF] hover:bg-blue-700 text-white h-12 px-4 rounded-2xl font-medium cursor-pointer mt-10"
+        >
           Connect/Sign in
         </Button>
       </div>
     </div>
   );
 }
+
+export default ReferCard;
