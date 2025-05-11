@@ -60,12 +60,7 @@ const Overview = () => {
               onClick={handleCopy}
               className="cursor-pointer bg-[#006EFF] hover:bg-blue-700 text-white font-medium text-sm leading-[18px] text-center w-full rounded-2xl h-12 relative"
             >
-              Copy Link
-              {copied && (
-                <span className="absolute top-full left-1/2 -translate-x-1/2 mt-2 text-xs text-white bg-[#282828] px-3 py-1 rounded-md shadow-md transition-opacity duration-300">
-                  Copied!
-                </span>
-              )}
+              {copied ? "Copied!" : "Copy Link"}
             </Button>
 
             <Button
