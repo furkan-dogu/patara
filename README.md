@@ -1,40 +1,58 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# 📊 Patara 
 
-## Getting Started
+Bu proje, modern web teknolojileri kullanılarak geliştirilmiş, tarih aralığına göre filtreleme, dinamik sayfalama ve animasyonlu geçişler sunan bir kazanç (earnings) tablosu bileşenidir.
 
-First, run the development server:
+## 🚀 Kullanılan Teknolojiler
+
+- ✅ **Next.js** (`pages` router kullanılmıştır)
+- ✅ **TypeScript**
+- ✅ **Tailwind CSS**
+- ✅ **shadcn/ui** bileşenleri
+- ✅ **framer-motion** (animasyonlar için)
+
+## ⚙️ Kurulum ve Geliştirme Ortamını Çalıştırma
+
+> Proje Node.js 18+ sürümüyle test edilmiştir.
+
+## Proje Linki
+
+[https://patara-xi.vercel.app/](https://patara-xi.vercel.app/)
+
+### 1. Bağımlılıkları Yükle
+
+```bash
+npm install
+```
+
+### 2. Geliştirme Ortamını Başlat
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Tarayıcıda http://localhost:3000 adresine giderek projeyi görüntüleyebilirsiniz.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+### Üretim Ortamı (Opsiyonel)
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+```bash
+npm run build
+npm run start
+```
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+## 🧩 Özellikler
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- 📅 **Tarih Filtresi:** `1D`, `1W`, `1M`, `1Y`, `ALL` seçenekleriyle veri filtreleme
+- 🔢 **Sayfalama:** Akıllı pagination mantığı (`1 ... 5 6 7 ... 10`) desteklenir
+- 🎞️ **Animasyonlar:** `framer-motion` ile satır geçiş animasyonları
+- 📱 **Responsive Tasarım:** Mobil uyumlu arayüz
+- 🚫 **Boş Veri Durumu:** Filtre sonrası veri yoksa `"No data found"` mesajı gösterilir
+- 🎨 **Özelleştirilmiş UI:** Tüm bileşenler `shadcn/ui` ve `tailwindcss` ile stilize edilmiştir
 
-## Learn More
+## 📁 Scriptler
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+| Komut           | Açıklama                            |
+|-----------------|-------------------------------------|
+| `npm run dev`   | Geliştirme sunucusunu başlatır      |
+| `npm run build` | Üretim için projeyi derler          |
+| `npm run start` | Derlenmiş projeyi çalıştırır        |
+| `npm run lint`  | Kod kalitesini kontrol eder         |
